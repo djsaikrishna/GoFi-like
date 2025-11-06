@@ -44,7 +44,10 @@ async def start_handler(event):
         link_preview=False,
         parse_mode="md",
         buttons=[
-            [Button.url("Source Code", "https://github.com/fayasnoushad/gofile-bot")]
+            [
+                Button.url("Source Code", "https://github.com/fayasnoushad/gofile-bot"),
+                Button.url("Developer", "https://github.com/fayasnoushad"),
+            ]
         ],
     )
 

@@ -1,21 +1,17 @@
 import os
 import json
 import shlex
-import requests
 import subprocess
 
 
-def uploadFile(file_path: str, token=None, folderId=None) -> dict:
-    response = requests.get("https://api.gofile.io/servers/").json()
-    servers = response["data"]["servers"]
-    server = servers[0]["name"]
+def upload_file(file_path: str, token=None, folderId=None) -> dict:
     cmd = "curl "
     cmd += f'-F "file=@{file_path}" '
     if token:
         cmd += f'-F "token={token}" '
     if folderId:
         cmd += f'-F "folderId={folderId}" '
-    cmd += f"'https://{server}.gofile.io/uploadFile'"
+    cmd += f"'https://upload.gofile.io/uploadfile'"
     upload_cmd = shlex.split(cmd)
     try:
         out = subprocess.check_output(upload_cmd, stderr=subprocess.STDOUT)
@@ -40,10 +36,10 @@ def uploadFile(file_path: str, token=None, folderId=None) -> dict:
 
     if response["status"] == "ok":
         data = response["data"]
-        # data["directLink"] = (
-        #     f"https://{server}.gofile.io/download/{data['id']}/{data['name']}"
-        # )
         return data
     elif "error-" in response["status"]:
         error = response["status"].split("-")[1]
         raise Exception(error)
+
+    # If execution reaches here, the response status was unexpected — raise to avoid returning None.
+    raise Exception("API Error (Unexpected Response Status)")

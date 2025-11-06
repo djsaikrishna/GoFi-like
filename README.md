@@ -1,4 +1,5 @@
 # GoFile Bot
+
 A telegram media to GoFile uploader bot
 
 ---
@@ -6,8 +7,8 @@ A telegram media to GoFile uploader bot
 ## Deploy
 
 ```sh
-git clone https://github.com/FayasNoushad/GoFile-Bot.git
-cd GoFile-Bot
+git clone https://github.com/FayasNoushad/gofile-bot.git
+cd gofile-bot
 python3 -m venv venv
 . ./venv/bin/activate
 pip3 install -r requirements.txt
@@ -28,6 +29,6 @@ python3 main.py
 ## Credits
 
 - [GoFile API](https://gofile.io/api)
-- [Contributors](https://github.com/FayasNoushad/GoFile-Bot/graphs/contributors)
+- [Contributors](https://github.com/FayasNoushad/gofile-bot/graphs/contributors)
 
 ---

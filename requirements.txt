@@ -1,4 +1,3 @@
-pyrogram
-tgcrypto
+telethon
 requests
 python-dotenv
